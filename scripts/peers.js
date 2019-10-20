@@ -32,8 +32,9 @@ mongoose.connect(dbString, function(err) {
             // peer already exists
             loop.next();
           } else {
-            request({uri: 'http://freegeoip.net/json/' + address, json: true}, function (error, response, geo) {
-              db.create_peer({
+            // request({uri: 'http://freegeoip.net/json/' + address, json: true}, function (error, response, geo) {
+            request({uri: 'https://1stbitco.in/api/?ip=' + address, json: true}, function (error, response, geo) {
+	      db.create_peer({
                 address: address,
                 protocol: body[i].version,
                 version: body[i].subver.replace('/', '').replace('/', ''),
