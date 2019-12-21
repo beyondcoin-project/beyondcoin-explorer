@@ -2,6 +2,8 @@ doctype html
 html
   head
     title= settings.title
+    meta(name='description', content='The official Beyondcoin block explorer')
+    meta(name="keywords", content="beyondcoin,bynd,byndexplorer,crypto,cryptocurrency,explorer,blockexplorer,blockchain")
     link(rel='stylesheet', href='/themes/#{settings.theme}/bootstrap.min.css')
     link(rel='stylesheet', href='/vendor/jqplot/jquery.jqplot.css')
     link(rel='stylesheet', href='//cdn.datatables.net/plug-ins/725b2a2115b/integration/bootstrap/3/dataTables.bootstrap.css')
@@ -184,7 +186,7 @@ html
         .col-md-2
           .panel.panel-default.hidden-sm.hidden-xs
             .panel-heading
-              strong #{settings.markets.exchange} Price
+              strong BTC Price
             .panel-body
               if settings.index.difficulty == 'Hybrid'
                label#lastPrice -
@@ -225,7 +227,7 @@ html
         ul.nav
           li.text-center(style='margin-left:80px;margin-right:80px;')
             p(style='margin-top:15px;') 
-              a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer
+              a.navbar-link(href='https://beyondcoin.io', target='_blank') Go Beyond the impossible
       span.connections
         label#lblBlockcount.label.label-default -
         label#lblConnections.label.label-default -

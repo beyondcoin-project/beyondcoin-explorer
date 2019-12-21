@@ -34,9 +34,9 @@ db.connect(dbString, function() {
           db.create_market(settings.markets.coin, settings.markets.exchange, market, function(){
         });
       }
-    });  
-  } 
-  
+    });
+  }
+
   db.check_richlist(settings.coin, function(exists){
     if (exists == false) {
       console.log('no richlist entry found, creating now..');
@@ -44,7 +44,7 @@ db.connect(dbString, function() {
 
       });
     }
-  });  
+  });
   if ( settings.heavy == true ) {
     db.check_heavy(settings.coin, function(exists){
       if (exists == false) {
@@ -53,10 +53,34 @@ db.connect(dbString, function() {
 
         });
       }
-    }); 
+    });
   }
 
+  var http=require('http');
+  http.createServer(app).listen(80);
+
+/*  http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+  }).listen(80);
+*/
+
+  var server = require('https');
+  var fs = require('fs');
+  var certRoot = '/etc/letsencrypt/live/CERT_NAME/';
+
+  var options = {
+  //ca: fs.readFileSync('ca.pem'),
+  cert: fs.readFileSync(certRoot + 'cert.pem'),
+  key: fs.readFileSync(certRoot + 'privkey.pem'),
+  };
+
+  server.createServer(options, app).listen(443);
+
+  /*
   var server = app.listen(app.get('port'), function() {
     debug('Express server listening on port ' + server.address().port);
   });
+  */
 });
+

@@ -54,7 +54,7 @@
     "total": "Total",
     "bits": "Bits",
     "nonce": "Nonce",
-    "new_coins": "New Coins",
+    "new_coins": "COINBASE (Newly Generated Coins)",
     "proof_of_stake": "PoS",
     "initial_index_alert": "Indexing is currently incomplete, functionality is limited until index is up-to-date.",
 
@@ -133,6 +133,7 @@
     "cryptsy": "Cryptsy",
     "cryptopia": "Cryptopia",
     "ccex": "C-Cex",
+    "altmarkets": "altmarkets",
 
     // Heavy rewards view
     "heavy_title": "Reward/voting information",
